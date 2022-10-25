@@ -1,0 +1,31 @@
+<html>
+    <body>
+        <h1>Lista de Mensajes</h1>
+
+        <div>
+            <form action="/" method="post" onsubmit="return enviarMensaje()">
+                <div class="form_box"> 
+                    <label>nombre</label>
+                        <input name="nombre"  class="form-control" type="text" id="nombre" > <br>
+                    <label>apellido</label>
+                        <input name="apellido" class="form-control" type="text" id="apellido" > <br>
+                    <label>edad</label>
+                        <input name="edad" class="form-control" type="number" id="edad"> <br>
+                    <label>email</label>
+                    <input name="email" class="form-control" type="mail" id="email"> <br>
+                    <label>alias</label>
+                        <input name="alias" class="form-control" type="text" id="alias"> <br>
+                    <label>avatar</label>
+                        <input name="avatar" class="form-control" type="text" id="avatar"> <br>
+                    <label>Escribe el mensaje!</label>
+                        <input name="mensaje" class="form-control" type="text" id="txt"> <br>
+                </div> <br>
+
+                <input type="submit" value="Enviar Mensaje">
+                <button type="reset">Borrar</button>
+            </form>
+        </div>
+
+        <div id="messages"></div>
+    </body>
+</html>

@@ -1,16 +1,22 @@
-const { assign } = require('nodemailer/lib/shared');
-const {modelCarrito} = require('./model');
+const modelCarrito = require('./model');
+const modelUsuario = require('../usuario/model');
 
 let ID = '_id';
 
 class ContenedorCarritos {
 
-    static crearCarrito () {
-        try {
-            return modelCarrito.create({});
-        } catch (error) {
-            console.log('ERROR AL CREAR CARRITO' + error)
-        }
+    static crearCarrito (idUsuario, producto) {
+
+        const usuarioId = modelUsuario.findById(idUsuario);
+
+        const timeStamp = Date.now();
+        const carritoNuevo = modelCarrito({
+            timeStamp: timeStamp,
+            productos: producto,
+            usuario: usuarioId
+        });
+        console.log(`Se creo el carrito ${carritoNuevo}`)
+        return carritoNuevo.save();
     }
 
     static deleteCarritoById(id){

@@ -24,7 +24,7 @@ class ContenedorProducto {
     
     static crearProducto(producto){
         const newProduct = Model({
-            descripcion: producto.descripcion,
+            producto: producto.producto,
             precio: producto.precio,
             categoria: producto.categoria,
             fotoProd: producto.fotoProd

@@ -5,24 +5,31 @@ const enviarProducto = () => {
     const producto = document.getElementById("producto").value;
     const precio = document.getElementById("precio").value;
     const fotoProd = document.getElementById("fotoProd").value;
-    const product = {producto, precio, fotoProd};
+    const categoria = document.getElementById("categoria").value;
+    
+    const product = {producto, precio, fotoProd, categoria};
+    
     producto = '';
     precio = '';
     fotoProd = '';
-    socket.emit('new_product', product);
+    categoria = '';
+    
+    socket.emit('new_products', product);
+    
     return false;
 };
 
 const crearProducto = (product) =>{
-    const {producto, precio, fotoProd} = product;
+    const {producto, precio, fotoProd, categoria} = product;
     return `
         <tr>
-            <td headers="name">${producto}</td>
-            <td headers="price">${precio}</td>
+            <td headers="producto">${producto}</td>
+            <td headers="precio">${precio}</td>
             <td headers="fotoProd">
                 <img src="${fotoProd}" alt="" width="75" height="75"></img>
             </td>
-            </tr>
+            <td headers="categoria">${categoria}</td>
+        </tr>
     `
 };
 
@@ -35,7 +42,7 @@ socket.on('products', (products)=>{
     return agregarProductos(products)
 });
 
-//MENSAJES
+MENSAJES
 const enviarMensaje = () => {
     const nombre = document.getElementById('nombre').value;
     const apellido = document.getElementById('apellido').value;

@@ -4,22 +4,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Inicio de Sesion - eCommerce</title>
 </head>
 <body>
     <h1>Inicio de Sesion</h1>
-    <form action="productos" method="post" action="/">       
+    <form action="/" method="POST">       
         <div class="mb-3 row">
             <label for="staticEmail">Email</label>
             <div>
-                <input type="text" id="username" name="username">
+                <input type="text" id="username" name="username" required>
             </div>
         </div>
 
         <div class="mb-3 row">
             <label for="inputPassword">Password</label>
             <div>
-                <input type="password" id="password" name="password">
+                <input type="password" id="password" name="password" required>
             </div>
         </div>
         <button type="submit" id="iniciaSesion">Iniciar Sesion</button>

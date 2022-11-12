@@ -7,8 +7,8 @@ envioSesion.addEventListener('submit', (e) => {
     e.preventDefault()
 });
 
-const goToSignInBtn = document.querySelector('#goToSignIn');
+// const goToSignInBtn = document.querySelector('#goToSignIn');
 
-goToSignInBtn.addEventListener('click',() => {
-    window.location.assign('/signIn');
-})
+// goToSignInBtn.addEventListener('click',() => {
+//     window.location.assign('/signIn');
+// })

@@ -6,20 +6,20 @@ const { engine } = require('express-handlebars');
 const { Server: HttpServer } = require('http');
 const { Server: SocketServer } = require('socket.io');
 const router = require('./routes/routes');
-const db = require('./DB/mongodb');
-const Model = require('./componentes/mensajes/model');
+const db = require('./db/mongodb');
+const Model = require('./src/mensajes/model');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')
 const { MongoClient } = require('mongodb');
-const passport = require('./passport');
+const passport = require('./middleware/passport');
 const config = require('./config')
 const cluster = require('cluster');
 const numCPUs = require('os');
 const minimist = require('minimist');
 const compression = require('compression');
-const storeProductos = require('./componentes/productos/storeProducto');
-const storeMensaje = require('./componentes/mensajes/storeMensaje')
+const storeProductos = require('./src/productos/storeProducto');
+const storeMensaje = require('./src/mensajes/storeMensaje')
 
 const app = express();
 

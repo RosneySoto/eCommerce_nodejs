@@ -4,16 +4,18 @@
     <body>
 
     <div class="formulario">
-        <form name="form" action="/productos" method="post" onsubmit="return enviarProducto()">
+        <form name="form" action="/productos" method="POST" onsubmit="return enviarProducto()">
             <h1>Agregar un nuevo Producto</h1>
             
             <div class="form_box"> 
                 <label>Producto</label>
-                    <input name="producto" type="text" id="title" > <br>
+                    <input name="producto" type="text" id="producto" > <br>
                 <label>Precio</label>
-                    <input name="precio" type="number" id="price" > <br>
+                    <input name="precio" type="number" id="precio" > <br>
                 <label>Foto</label>
-                    <input name="fotoProd" type="text" id="thumbnail"> <br>
+                    <input name="fotoProd" type="text" id="fotoProd"> <br>
+                <label>Categoria</label>
+                    <input name="categoria" type="text" id="categoria" ><br>
             </div> <br>
 
             <div class="row">
@@ -33,6 +35,7 @@
                 <th>Producto</th>
                 <th>Precio</th>
                 <th>Foto</th>
+                <th>Categoria</th>
             </tr>
             </thead>
 
@@ -44,7 +47,7 @@
 
     <hr>
 
-    {{!-- <h1>Lista de Mensajes</h1>
+    <h1>Lista de Mensajes</h1>
 
     <div>
         <form action="/" method="post" onsubmit="return enviarMensaje()">
@@ -70,7 +73,7 @@
         </form>
     </div>
 
-    <div id="messages"></div> --}}
+    <div id="messages"></div>
 
     </body>
 </html>

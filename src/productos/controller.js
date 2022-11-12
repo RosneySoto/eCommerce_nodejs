@@ -2,14 +2,19 @@ const storeProducto = require('./storeProducto');
 
 const productos = async (req, res) =>{
     const productos = await storeProducto.getAll();
-    // res.render("productos");
-    res.send({productos});
+    res.render("home");
+};
+
+const mostrarProductos = async (req, res) => {
+    const productos = await storeProducto.getAll();
+    res.render('productos');
 };
 
 const crearProducto = async (req, res) => {
     const producto = req.body
     const nuevoProducto = await storeProducto.crearProducto(producto);
-    res.send(`Se guardo el siguiente producto ${nuevoProducto}`)
+    res.render('productos')
+    // res.send(`Se guardo el siguiente producto ${nuevoProducto}`)
 };
 
 const buscarProductoDescripcion = async (req, res) => {
@@ -51,5 +56,6 @@ module.exports = {
     crearProducto,
     buscarProductoDescripcion,
     eliminarProducto,
-    editarProducto
+    editarProducto,
+    mostrarProductos
 }

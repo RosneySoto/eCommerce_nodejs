@@ -3,7 +3,7 @@ const router = express.Router();
 const passport = require('../middleware/passport');
 
 const { productos, crearProducto, eliminarProducto, buscarProductoDescripcion, editarProducto, mostrarProductos } = require('../src/productos/controller');
-const { inicio, registroUsuario, listarUsuarios, usuarioLogin, registroVista, usuarioEmail } = require('../src/usuario/controller');
+const { inicio, registroUsuario, listarUsuarios, usuarioLogin, registroVista, usuarioEmail, registroView } = require('../src/usuario/controller');
 const { listaMensajes, postMessage, listaMensajePorEmail } = require('../src/mensajes/controller');
 const { agregarProducto } = require('../src/orden/controller');
 const { crearCarrito } = require('../src/carrito/controller');
@@ -16,16 +16,15 @@ router.post('/', passport.authenticate('autenticacion', {
     failureRedirect: '/',
     passReqToCallback: true
 }), usuarioLogin);
-router.get('/productos', mostrarProductos);
-router.post('/productos', crearProducto)
-
+router.get('/signIn', registroView);
+router.post('/signIn', registroUsuario)
 // router.get('/:username', usuarioEmail);
 // router.get('/users', listarUsuarios)
-// router.get('/signIn', registroVista)
-// //crear usuario
-// router.post('/signIn', registroUsuario)
 
 // // ROUTERS DEL MODULO PRODUCTO
+router.get('/productos', mostrarProductos);
+router.post('/productos', crearProducto);
+
 // router.get('/productos', productos);
 // router.post('/producto', crearProducto);
 // router.get('/producto/:descripcion', buscarProductoDescripcion);

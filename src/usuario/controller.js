@@ -9,6 +9,10 @@ const inicio = (req, res) => {
     res.render('logIn');
 };
 
+const registroView = (req, res) => {
+    res.render('signIn');
+}
+
 const usuarioLogin = async (req, res) => {
     const user = req.body
     if(!user) return console.log('DEBE INGRESAR UN EMAIL COMO USUARIO')
@@ -32,30 +36,31 @@ const usuarioLogin = async (req, res) => {
 //     res.render("signIn")
 // }
 
-// const registroUsuario = async (req, res, callback) =>{
-//     const user = req.body
-//     const userFind = await Model.findOne({username: req.body.username}) 
-//     if(userFind){
-//         console.log('ERROR: EL USUARIO YA EXISTE')
-//         res.send('ERROR, EL USUARIO YA EXISTE')
-//     }
-//     const passwordHash = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10));
-//         const newUser = { 
-//             username: req.body.username, 
-//             password: passwordHash,
-//             nombre: req.body.nombre,
-//             apellido: req.body.apellido,
-//             telefono: req.body.telefono,
-//           };
-//         savedUser = await storeUsuario.addUser(newUser);
-//         res.render('productos');
-// };
+const registroUsuario = async (req, res, callback) =>{
+    const user = req.body
+    const userFind = await Model.findOne({username: req.body.username}) 
+    if(userFind){
+        console.log('ERROR: EL USUARIO YA EXISTE')
+        res.send('ERROR, EL USUARIO YA EXISTE')
+    }
+    const passwordHash = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10));
+        const newUser = { 
+            username: req.body.username, 
+            password: passwordHash,
+            nombre: req.body.nombre,
+            apellido: req.body.apellido,
+            telefono: req.body.telefono,
+          };
+        savedUser = await storeUsuario.addUser(newUser);
+        res.render('home');
+};
 
 module.exports = {
     inicio,
     usuarioLogin,
+    registroView,
     // usuarioEmail,
-    // registroUsuario,
+    registroUsuario,
     // listarUsuarios,
     // registroVista
 };

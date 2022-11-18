@@ -29,6 +29,9 @@ const crearProducto = (product) =>{
                 <img src="${fotoProd}" alt="" width="75" height="75"></img>
             </td>
             <td headers="categoria">${categoria}</td>
+            <td>
+                <button type="">Comprar</button>
+            </td>
         </tr>
     `
 };

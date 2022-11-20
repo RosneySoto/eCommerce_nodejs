@@ -13,6 +13,7 @@ class ContenedorUsuarios {
 
     static getUsers(){
         const ListUsuarios = Model.find();
+        console.log(ListUsuarios)
         return ListUsuarios;
     };
 
@@ -22,6 +23,11 @@ class ContenedorUsuarios {
         // const usuario =  Model.findOne(user);
         return usuario;
     };
+
+    static getUserById (id){
+        const user = Model.findById(id);
+        return user;
+    }
 
     static addUser(usuario){
         const newUser = Model({

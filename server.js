@@ -28,9 +28,9 @@ app.use(session({
     store: MongoStore.create({
         mongoUrl: config.dbUrlMongo
     }),
-    secret: 'jose',
-    resave: false,
-    saveUninitialized: false,
+    secret: 'secreto',
+    resave: true,
+    saveUninitialized: true,
     cookie: {
         maxAge: 60000
     }

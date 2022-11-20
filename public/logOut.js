@@ -7,4 +7,4 @@ socket.on('usuario',(usuario) => {
 
 setTimeout(() => {
     window.location.assign('/');
-},5000);
+},60000); //Un minuto

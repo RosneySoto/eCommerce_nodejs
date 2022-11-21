@@ -20,7 +20,7 @@ router.get('/signIn', registroView);
 router.post('/signIn', registroUsuario)
 router.get('/:username', usuarioEmail);
 router.get('/usuario/:id', usuarioById);
-router.get('/usuario/listaUsuarios', listarUsuarios)
+router.get('/usuarios', listarUsuarios)
 
 // // ROUTERS DEL MODULO PRODUCTO
 router.get('/productos', mostrarProductos);

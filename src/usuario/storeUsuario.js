@@ -13,8 +13,12 @@ class ContenedorUsuarios {
 
     static getUsers(){
         const ListUsuarios = Model.find();
-        console.log(ListUsuarios)
-        return ListUsuarios;
+        if(!ListUsuarios){
+            console.log('ERROR AL LISTAR TODOSO LOS USUARIOS')
+        }else {
+            console.log(ListUsuarios)
+            return ListUsuarios;
+        }
     };
 
     static getUserbyEmail (username){

@@ -7,11 +7,12 @@ const { inicio, registroUsuario, listarUsuarios, usuarioLogin, registroVista, us
 const { listaMensajes, postMessage, listaMensajePorEmail } = require('../src/mensajes/controller');
 const { agregarProducto } = require('../src/orden/controller');
 const { crearCarrito } = require('../src/carrito/controller');
+const { generarJwt, tokenValido,  } = require('../middleware/auth'); 
 
 // ROUTERS DEL MODULO USUARIO
 router.get('/', inicio);
-router.get('/home', productos)
-router.post('/', passport.authenticate('autenticacion', {
+router.get('/home', tokenValido, productos)
+router.post('/', generarJwt, passport.authenticate('autenticacion', {
     successRedirect: '/home',
     failureRedirect: '/',
     passReqToCallback: true

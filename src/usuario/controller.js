@@ -5,6 +5,11 @@ const transport = require('../../middleware/nodemailer')
 const bcrypt = require('bcrypt');
 const Model = require('./model');
 const session = require('express-session');
+const auth = require('../../middleware/auth')
+
+const jwt = require('jsonwebtoken');
+const { JWT_SECRET } = process.env;
+
 
 const inicio = (req, res) => {
     res.render('logIn');
@@ -14,10 +19,14 @@ const registroView = (req, res) => {
     res.render('signIn');
 }
 
-const usuarioLogin = async (req, res) => {
+const usuarioLogin = async (req, res, next) => {
     const user = req.body
-    if(!user) return console.log('DEBE INGRESAR UN EMAIL COMO USUARIO')
+    
+    if(!user) return console.log('DEBE INGRESAR UN EMAIL COMO USUARIO');
+    
     const usuario = await storeUsuario.loginUser(user);
+    const token = auth.generarJwt({usuario});
+
     if(!usuario) {
         return console.log('EL USUARIO NO EXISTE')
     }
@@ -27,6 +36,7 @@ const usuarioLogin = async (req, res) => {
     };
     // res.send('el usuario ingreso correctamente');
     res.render("home");
+    next();
 };
 
 const usuarioEmail = async (req, res) => {

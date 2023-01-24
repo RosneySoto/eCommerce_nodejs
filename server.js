@@ -19,7 +19,7 @@ const numCPUs = require('os');
 const minimist = require('minimist');
 const compression = require('compression');
 const storeProductos = require('./src/productos/storeProducto');
-const storeMensaje = require('./src/mensajes/storeMensaje')
+const storeMensaje = require('./src/mensajes/storeMensaje');
 
 const app = express();
 
